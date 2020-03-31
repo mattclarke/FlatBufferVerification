@@ -19,7 +19,7 @@ message("DONE RUNNING CONAN")
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(fb_verify main.cpp)
+add_executable(fb_verify main.cpp schemas/f142.h schemas/f142.cpp schemas/hs00.h schemas/hs00.cpp)
 set_property(TARGET fb_verify
         PROPERTY COMPILE_DEFINITIONS FLATBUFFERS_TRACK_VERIFIER_BUFFER_SIZE
         FLATBUFFERS_DEBUG_VERIFICATION_FAILURE=1)

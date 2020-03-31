@@ -1,0 +1,16 @@
+[requires]
+fmt/5.3.0@bincrafters/stable
+range-v3/0.5.0@ericniebler/stable
+streaming-data-types/c670575@ess-dmsc/stable
+
+[generators]
+cmake
+virtualrunenv
+
+[imports]
+., *.dylib* -> ./lib @ keep_path=False
+., *.so* -> ./lib @ keep_path=False
+., LICENSE* -> ./licenses @ folder=True, ignore_case=True
+., *.dll -> ./bin @ keep_path=False
+., *.a* -> ./lib @ keep_path=False
+., *.lib -> -> ./bin @ keep_path=False

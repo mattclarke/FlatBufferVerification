@@ -1,7 +1,7 @@
 [requires]
 fmt/5.3.0@bincrafters/stable
 range-v3/0.5.0@ericniebler/stable
-streaming-data-types/c670575@ess-dmsc/stable
+streaming-data-types/c84af55@ess-dmsc/stable
 
 [generators]
 cmake

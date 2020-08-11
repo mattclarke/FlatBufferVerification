@@ -1,3 +1,6 @@
+// Enable debug asserts on verification failure
+#define FLATBUFFERS_DEBUG_VERIFICATION_FAILURE
+
 #include "flatbuffers/flatbuffers.h"
 #include "schemas/f142.h"
 #include "schemas/hs00.h"

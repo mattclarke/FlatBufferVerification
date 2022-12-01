@@ -3,6 +3,7 @@
 
 #include "flatbuffers/flatbuffers.h"
 #include "schemas/f142.h"
+#include "schemas/f144.h"
 #include "schemas/hs00.h"
 #include "schemas/x5f2.h"
 #include <fstream>
@@ -14,6 +15,9 @@ bool verify_message(const std::string &id, const uint8_t *memblock, int length) 
 
   if (id == "f142") {
     is_verified = verify_f142(memblock, length);
+  }
+  else if (id == "f144") {
+    is_verified = verify_f144(memblock, length);
   } else if (id == "hs00") {
     is_verified = verify_hs00(memblock, length);
   } else if (id == "x5f2") {

@@ -17,12 +17,14 @@ conan_cmake_run(CONANFILE conanfile.txt
         BUILD missing)
 message("DONE RUNNING CONAN")
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 add_executable(fb_verify
         main.cpp
         schemas/f142.h
         schemas/f142.cpp
+        schemas/f144.h
+        schemas/f144.cpp
         schemas/hs00.h
         schemas/hs00.cpp
         schemas/x5f2.h

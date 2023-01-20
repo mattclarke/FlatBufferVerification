@@ -2,11 +2,11 @@
 #define FLATBUFFERS_DEBUG_VERIFICATION_FAILURE
 
 #include "flatbuffers/flatbuffers.h"
+#include "schemas/ev44.h"
 #include "schemas/f142.h"
 #include "schemas/f144.h"
 #include "schemas/hs00.h"
 #include "schemas/x5f2.h"
-#include "schemas/ev44.h"
 #include <fstream>
 #include <iostream>
 
@@ -20,13 +20,15 @@ std::tuple<uint8_t *, size_t> generate_message(const std::string_view schema) {
   return {nullptr, 0};
 }
 
-void write_to_file(const std::string &filename, const uint8_t *buffer, size_t length){
+void write_to_file(const std::string &filename, const uint8_t *buffer,
+                   size_t length) {
   std::ofstream wf(filename, std::ios::out | std::ios::binary);
-  wf.write((char const *) buffer, length);
+  wf.write((char const *)buffer, length);
   wf.close();
 }
 
-bool verify_message(const std::string &schema, const uint8_t *buffer, size_t length) {
+bool verify_message(const std::string &schema, const uint8_t *buffer,
+                    size_t length) {
   bool is_verified = false;
 
   if (schema == "f144") {
@@ -51,24 +53,23 @@ bool verify_message(const std::string &schema, const uint8_t *buffer, size_t len
   return is_verified;
 }
 
-void print_buffer(uint8_t const * const buffer, size_t length) {
+void print_buffer(uint8_t const *const buffer, size_t length) {
   for (int i = 0; i < length; i++) {
     printf("%02X", buffer[i]);
   }
   std::cout << '\n' << "Message length = " << length << '\n';
 }
 
-std::string get_schema(uint8_t const * const buffer) {
-  std::string schema = {(char) buffer[4]};
-  schema.push_back((char) buffer[5]);
-  schema.push_back((char) buffer[6]);
-  schema.push_back((char) buffer[7]);
+std::string get_schema(uint8_t const *const buffer) {
+  std::string schema = {(char)buffer[4]};
+  schema.push_back((char)buffer[5]);
+  schema.push_back((char)buffer[6]);
+  schema.push_back((char)buffer[7]);
   return schema;
 }
 
-std::tuple<uint8_t *, size_t> load_file(std::string const & filename) {
-  auto fb_file = std::fstream(filename,
-                              std::ios::in | std::ios::binary);
+std::tuple<uint8_t *, size_t> load_file(std::string const &filename) {
+  auto fb_file = std::fstream(filename, std::ios::in | std::ios::binary);
   // Go to the end
   fb_file.seekg(0, std::ios::end);
   int length = fb_file.tellg();
@@ -78,7 +79,7 @@ std::tuple<uint8_t *, size_t> load_file(std::string const & filename) {
   fb_file.read(reinterpret_cast<char *>(memblock), length);
   fb_file.close();
 
-  return {(uint8_t *) memblock, (size_t) length};
+  return {(uint8_t *)memblock, (size_t)length};
 }
 
 int main() {
@@ -98,4 +99,3 @@ int main() {
 
   return 0;
 }
-

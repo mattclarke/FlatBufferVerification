@@ -11,18 +11,11 @@ std::tuple<uint8_t *, size_t> create_ev44() {
   builder.ForceDefaults(true);
   auto source = builder.CreateString("some_source");
 
-  std::vector<int64_t> ref_times = {1618573589123781958,
-                                    1618573590133830371,
-                                    1618573593677164112,
-                                    1618573594185190549,
-                                    1618573596217316066,
-                                    1618573596725363109,
-                                    1618573601295720976,
-                                    1618573601799761445,
-                                    1618573607354064836};
-  std::vector<int32_t> ref_times_idx = {
-      2, 4, 5, 7
-  };
+  std::vector<int64_t> ref_times = {
+      1618573589123781958, 1618573590133830371, 1618573593677164112,
+      1618573594185190549, 1618573596217316066, 1618573596725363109,
+      1618573601295720976, 1618573601799761445, 1618573607354064836};
+  std::vector<int32_t> ref_times_idx = {2, 4, 5, 7};
   auto ref_fb = builder.CreateVector<int64_t>(ref_times);
   auto refi_fb = builder.CreateVector(ref_times_idx);
 
@@ -41,7 +34,8 @@ std::tuple<uint8_t *, size_t> create_ev44() {
   ev44builder.add_source_name(source);
   auto b = ev44builder.Finish();
 
-//  auto b = CreateEvent44Message(builder, source, 123456, ref_fb, refi_fb, tofs_fb, ids_fb);
+  //  auto b = CreateEvent44Message(builder, source, 123456, ref_fb, refi_fb,
+  //  tofs_fb, ids_fb);
   builder.Finish(b, "ev44");
 
   return {builder.GetBufferPointer(), builder.GetSize()};

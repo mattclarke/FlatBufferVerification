@@ -6,6 +6,7 @@
 #include "schemas/f144.h"
 #include "schemas/hs00.h"
 #include "schemas/x5f2.h"
+#include "schemas/ev44.h"
 #include <fstream>
 #include <iostream>
 #include <array>
@@ -13,15 +14,14 @@
 bool verify_message(const std::string &id, const uint8_t *memblock, int length) {
   bool is_verified = false;
 
-  if (id == "f142") {
-    is_verified = verify_f142(memblock, length);
-  }
-  else if (id == "f144") {
+  if (id == "f144") {
     is_verified = verify_f144(memblock, length);
   } else if (id == "hs00") {
     is_verified = verify_hs00(memblock, length);
   } else if (id == "x5f2") {
     is_verified = verify_x5f2(memblock, length);
+  } else if (id == "ev44") {
+    is_verified = verify_ev44(memblock, length);
   } else {
     std::cout << "WARNING: Unrecognised schema" << '\n';
   }

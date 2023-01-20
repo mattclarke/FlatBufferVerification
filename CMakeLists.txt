@@ -25,6 +25,8 @@ add_executable(fb_verify
         schemas/f142.cpp
         schemas/f144.h
         schemas/f144.cpp
+        schemas/ev44.h
+        schemas/ev44.cpp
         schemas/hs00.h
         schemas/hs00.cpp
         schemas/x5f2.h

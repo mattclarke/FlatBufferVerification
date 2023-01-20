@@ -11,7 +11,7 @@ from streaming_data_types.status_x5f2 import serialise_x5f2
 
 ans = serialise_x5f2("name", "v1", "ser", "host", 12345, 100, "{}")
 
-with open("/fb_out", "wb") as f:
+with open("fb_out", "wb") as f:
     f.write(ans)
 ```
 

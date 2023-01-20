@@ -3,5 +3,5 @@
 
 bool verify_f144(const uint8_t *buf, size_t buf_len) {
   auto verifier = flatbuffers::Verifier(buf, buf_len);
-  return VerifyLogDataBuffer(verifier);
+  return VerifyLogData144Buffer(verifier);
 }

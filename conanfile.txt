@@ -1,7 +1,8 @@
 [requires]
 fmt/8.1.1
-range-v3/0.5.0
-streaming-data-types/cc618df@ess-dmsc/stable
+range-v3/0.12.0
+#flatbuffers/1.12.0
+streaming-data-types/5b537f9@ess-dmsc/stable
 
 [generators]
 cmake
